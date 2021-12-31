@@ -1,0 +1,495 @@
+body{
+	margin-top: 0;
+	background: #6b6b6b40;
+}
+/*header*/
+header{
+ box-shadow: 1px 5px 10px 1px rgb(107 107 107);
+    -webkit-box-shadow: 1px 5px 10px 1px rgb(107 107 107);
+    -moz-box-shadow: 1px 5px 10px 1px rgba(45,61,204,0.75);
+    margin-bottom: 30px;	
+}
+.top_header{
+	padding: 8px 30px;
+	   
+}
+.top_header .logo{
+	width: 200px;
+}
+@media(max-width: 992px){
+.top_header .logo{
+	width: 120px;
+}
+}
+@media(max-width: 992px){
+.top_header{
+	padding: 8px 15px;
+}
+}
+.top_header .right_sec a{
+	color: #7a0202 !important;
+    font-size: 18px;
+    font-weight: 600;
+}
+.top_header .right_sec a:hover{
+	text-decoration: underline;
+}
+.middle_header{
+	background: #7a0202;
+	text-align: center;
+	padding: 0px 30px;
+}
+.middle_header .link-item{
+	color: #fff !important;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 15px 30px;
+    text-transform: capitalize;
+}
+.middle_header .link-item:hover{
+	text-decoration: none;
+	background: #eddada;
+    color: #7a0202 !important;
+}
+@media(max-width: 992px){
+.middle_header{
+	padding: 0px;
+	-webkit-box-pack: justify!important;
+    -ms-flex-pack: justify!important;
+    justify-content: space-between!important;
+        background: #6e6e6eb8;
+}
+}
+@media(max-width: 992px){
+.middle_header .link-item{
+	background: #7a0202;
+	    padding: 5px 30px;
+	    font-size: 16px;
+    font-weight: 600;
+        width: 33%;
+}
+}
+/*Right Nav*/
+.right-nav-filter{
+
+    position: relative;   
+    margin-bottom: 10px; 
+    text-align: center;
+    font-weight: 600;
+}
+@media(min-width: 993px){
+.right-nav-filter{
+box-shadow: 1px 2px 13px 4px rgb(191 191 191 / 75%);
+    -webkit-box-shadow: 1px 2px 13px 4px rgb(191 191 191 / 75%);
+    -moz-box-shadow: 1px 2px 13px 4px rgba(191,191,191,0.75);
+}
+}
+
+.right-nav-filter .title-label{
+	font-size: 18px;
+    font-weight: 600;
+    background: #7a0202;
+    color: #fff;
+    text-transform: uppercase;
+}
+.right-nav-filter .cont{
+	    padding: 0;
+	    text-transform: capitalize;
+	    color: #7a0202 !important;
+	    padding: 13px;
+}
+.right-nav-filter .cont a{	   
+	    color: #7a0202 !important;
+	    padding: 0;
+}
+.right-nav-filter .cont:hover{
+	text-decoration: none;
+	background: #eddada;
+    color: #7a0202;
+}
+
+
+/*main content*/
+.user_view_post{
+box-shadow: 1px 2px 13px 4px rgb(191 191 191 / 75%);
+    -webkit-box-shadow: 1px 2px 13px 4px rgb(191 191 191 / 75%);
+    -moz-box-shadow: 1px 2px 13px 4px rgba(191,191,191,0.75);
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding-top: 75px;
+    border-radius: 15px;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;		
+}
+.cont_block{
+    display: grid;
+}
+.user_view_post .doc-dp_sec{
+position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -52px;
+    width: 121px;
+    height: 121px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+}
+.user_view_post .doc-dp_sec .doc-dp{
+width: 100%;
+}
+.user_view_post .doc_name{
+	font-size: 20px;
+    font-weight: 600;
+    color: #7a0202 !important;
+}
+.user_view_post .book-appointement{
+	width: 100%;
+    display: block;
+    padding: 8px;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 600;
+    background: #00bf2c;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: white;
+}
+.user_view_post .book-appointement:hover{
+	background: #049726;
+	text-decoration: none;
+}
+.shed_appointement{
+    color: #7a0202;
+    background: #fff;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+.shed_appointement:hover{
+  color: #fff; 
+  background: #049726;
+}
+@media(max-width: 992px){
+.main_cont{
+	order: 2;
+    margin-top: 15px;
+}
+.mobile_view{
+	order: 1;
+}
+.appointement_link a{
+    padding: 6px;
+    color: #fff;
+    background: #7a0202a8;
+    border-right: 2px solid #fff;
+}
+.category_link p{
+        padding: 6px;
+    margin: 0;
+      color: #fff;
+    background: #7a0202a8;
+}
+.site-header{
+    margin-bottom: 0;
+}
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} 
+
+.spec_text span{
+    background: #6b6b6b;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 50px;
+}
+
+/*login page*/
+.login_sec{
+    box-shadow: 1px 2px 13px 4px rgb(191 191 191 / 75%);
+    -webkit-box-shadow: 1px 2px 13px 4px rgb(191 191 191 / 75%);
+    -moz-box-shadow: 1px 2px 13px 4px rgba(191,191,191,0.75);
+    position: relative;    
+    border-radius: 15px;
+    padding: 15px;
+    background: #fff;   
+}
+.form_custom label{
+    font-size: 14px;
+}
+.form_custom input{
+     border: 0;
+  border-bottom: 1px solid #d2d2d2;
+  outline: 0;
+  font-size: 16px;
+  color: #212121;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form_custom input:focus{
+    border-bottom: 2px solid #7a0202;
+    outline: none;
+    box-shadow: none;
+}
+.login-submit{  
+    text-align: center;
+    background: #7a0202b8;
+    border-bottom-left-radius: 15px; 
+    border-right: 3px solid #fff;
+    padding: 0;
+}
+.login-submit input{
+   border: 0;
+    padding: 0;
+    font-weight: 800;
+    font-size: 16px;
+     color:#fff;
+     width: 100%;
+      padding: 10px;
+       border-bottom-left-radius: 15px; 
+}
+.login-otp{
+    padding: 0;
+    text-align: center;
+    background: #7a0202b8;
+    border-bottom-right-radius: 15px; 
+}
+.login-otp a{
+   border: 0;
+    font-weight: 800;
+    font-size: 16px;
+    color:#fff;
+     width: 100%;
+      padding: 10px;
+      margin: 0;
+      display: block;
+      text-decoration: none;
+}
+.login-submit input:hover, .login-otp:hover{
+    background: #7a0202;
+    cursor: pointer;
+} 
+.login_sec_otp, .login_sec_verify_otp{
+     box-shadow: 1px 2px 13px 4px rgb(191 191 191 / 75%);
+    -webkit-box-shadow: 1px 2px 13px 4px rgb(191 191 191 / 75%);
+    -moz-box-shadow: 1px 2px 13px 4px rgba(191,191,191,0.75);
+    position: relative;    
+    border-radius: 15px;
+    padding: 15px;
+    background: #fff;  
+}
+.login_sec_otp input{
+    display: block;
+    width: 100%;
+    background: inherit;
+}
+.login_sec_otp input:focus{
+    background: inherit;
+}
+.login_sec_otp .submit_btn{
+    border: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 16px;
+     color:#fff;
+     width: 100%;
+      padding: 10px;
+       border-bottom-left-radius: 15px; 
+       border-bottom-right-radius: 15px; 
+        background: #7a0202b8;
+}
+.login_sec_otp .submit_btn:hover, .verify_btn:hover{
+   
+        background: #7a0202;
+}
+.login_sec_verify_otp input{
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.verify_btn{
+      border: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 16px;
+     color:#fff;
+     width: 100%;
+      padding: 10px;
+       border-bottom-left-radius: 15px; 
+       border-bottom-right-radius: 15px; 
+        background: #7a0202b8;
+}
+
+/*custom radio button*/
+
+.btn_choose_sent input {
+  -webkit-appearance: none;
+  display: block;
+  margin: 10px;
+  width: 18px;
+  height: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  vertical-align: middle;
+  
+      background-repeat: no-repeat;
+  -webkit-transition: background-position .15s cubic-bezier(.8, 0, 1, 1),
+    -webkit-transform .25s cubic-bezier(.8, 0, 1, 1);
+  outline: none;
+}
+
+/* The up/down direction logic */
+
+.btn_choose_sent input,
+.btn_choose_sent input:active {
+  background-position: 0 24px;
+}
+.btn_choose_sent input:checked {
+  background-position: 0 0;
+  visibility: visible;
+}
+.btn_choose_sent.checked{
+    background: #7a0202 !important;
+    color: #fff;
+    padding-left: 25px;
+}
+.btn_choose_sent.checked .check_selected_icon{
+   display: block !important;
+}
+
+.btn_choose_sent input:checked ~ input,
+ .btn_choose_sent input:checked ~ input:active {
+  background-position: 0 -24px;
+}
+.date_select .btn_choose_sent{
+    width: 120px;
+}
+.btn_choose_sent{
+        background: #EF2D56;
+    color: #7a0202;
+   
+    border: none; 
+     border-radius: 3px;
+    font-size: 16px;
+    line-height: 10px;
+    padding-top:  16px;
+    padding-bottom:  16px;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    transition: all .3s;
+    height: auto;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+}
+.check_selected_icon{
+   color: #00bf2c;
+    display: none !important;
+    position: absolute;
+    top: 12px;
+    left: 11px;
+
+}
+.btn_choose_sent input{
+   position: absolute;
+    left: 0;
+    right: 0;      
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border-radius: 0;
+    z-index: 0;
+}
+.btn_choose_sent input:hover{
+    background: #7a02028c;
+}
+.radio_select_opt{
+    background-color: #fff !important;
+    border: 1px solid #7a0202;
+}
+.select_date_time{
+    text-align: center;
+}
+.select_date_time button{
+   background: #00bf2c;
+    color: #fff;
+    border: 0;
+    border-radius: 15px;
+    padding: 8px 29px; 
+}
+.selected_date{
+    background: #6b6b6b;
+    color: #fff;
+    font-weight: 600;
+    padding: 15px;
+    border-radius: 17px;
+    margin-bottom: 21px;
+}
+.Book_app_time{
+    display: block;
+    margin: 5px auto 21px;
+    background: #00bf2c;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 30px;
+    border-radius: 16px;
+    border: 0;
+}
+.Book_app_time:hover{
+    background: #049726;
+    text-decoration: none;
+    cursor: pointer;
+}
+.time_book .radio_select_opt{
+    width: 90px;
+}
+
+.date_sel .radio_select_opt{
+ width: 160px;
+}

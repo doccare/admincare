@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="{{ url_for("otpregister")}}" method="POST">
+
+
+ username : <input type="text" id="username" name="username" class="btn btn-outline-info"></input>
+ password : <input type="password" id="password" name="password" class="btn btn-outline-info"></input>
+
+<input type="hidden" id="email" name="email" value={{email}}></input>
+OTP : <input type="text" id="otp" name="otp" class="btn btn-outline-info"></input>
+
+<button type="submit" class="btn btn-outline-info">Verify</button>
+{% endblock content %}

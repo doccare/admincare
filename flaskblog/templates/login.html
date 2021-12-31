@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+{% block content %}
+ <h3 class="text-center mb-4">LogIn</h3>
+    <div class=" login_sec p-0">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group p-2 p-lg-4">
+               
+                <div class="form-group form_custom ">
+                    {{ form.email.label(class="form-control-label form_label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg  is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg form_input") }}
+                    {% endif %}
+                </div>
+                <div class="form-group form_custom">
+                    {{ form.password.label(class="form-control-label form_label") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control form-control-lg form_input") }}
+                    {% endif %}
+                </div>
+               
+            </fieldset>
+            <div class="row m-0 px-2 px-lg-4">
+                <div class="col">
+                    <div class="form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
+            </div>
+                </div>
+                <div class="col text-right">
+                     <div class="form-group">
+               
+                <small class="text-muted ml-2">
+                    <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
+                </small>
+            </div>
+                </div>
+
+            </div>
+            <div class="row m-0">
+                <div class="col login-submit">
+
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+                <div class="col login-otp">
+                    <a class="ml-2" href="{{ url_for('otplogin') }}">OTP login</a>
+                </div>
+            </div>
+             
+           
+        </form>
+    </div>
+    <div class="border-top pt-3 text-center">
+        <small class="text-muted">
+            <b>New User :</b><a class="ml-2" href="{{ url_for('register') }}">Sign Up Now</a> /<a class="ml-2" href="{{ url_for('otplogin') }}">OTP Register</a>
+        </small>
+    </div>
+{% endblock content %}

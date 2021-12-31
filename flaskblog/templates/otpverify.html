@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="{{ url_for("otpverify")}}" method="POST">
+
+ OTP : <input type="text" id="otp" name="otp" class="btn btn-outline-info"></input>
+<input type="hidden" id="email" name="email" value={{email}}></input>
+
+
+<button type="submit" class="btn btn-outline-info">Verify</button>
+{% endblock content %}

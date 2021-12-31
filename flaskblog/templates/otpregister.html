@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="{{ url_for("otpregister")}}" method="POST">
+    <div class="login_sec_verify_otp p-0">
+<div class="form_custom p-4">
+    <label>username</label>
+    <input type="text" id="username" name="username" class="btn text-left"></input>
+     <label>password</label>
+    <input type="password" id="password" name="password" class="btn text-left"></input>
+     <label>OTP</label>
+    <div class="d-none"><input type="hidden" id="email" name="email" value={{email}}></input></div>
+ <input type="text" id="otp" name="otp" class="btn text-left"></input>
+</div>
+
+
+<button type="submit" class="btn verify_btn">Verify</button>    
+</div>
+
+{% endblock content %}

@@ -1,0 +1,120 @@
+{% extends "layout.html" %}
+{% block content %}
+    
+    {% for post in posts.items %}
+        <article class="media content-section user_view_post">
+          <div class="doc-dp_sec">
+          <img class="rounded-circle doc-dp" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+        </div>
+         <div class="media-body">
+            <div class="px-2 px-lg-5">
+            <div class="article-metadata text-center pb-3 mb-3">
+              <a class="mr-2  doc_name" href="{{ url_for('user_posts', username=post.author.username) }}">{{ post.author.username }}</a>
+              <!-- <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small> -->
+            </div>
+<form action="{{ url_for("appointmentbook")}}" method="POST" class="text-center">
+
+{% if adates_2011_2013 %}  
+<div class="date_sel">
+  <h4 class="mb-4">Select your Date</h4>
+
+{% for post20 in adates_2011_2013 %} 
+<button type="button" class="btn_choose_sent radio_select_opt">
+  <i class="far fa-calendar-alt check_selected_icon"></i>
+     <input type=radio name="date50" value={{ post20 }}>{{ post20 }}</option>
+</button>
+{% endfor %}
+</div>
+  {% else %}
+  <div class="selected_date"> <b><u><i>{{ user }}</i></u></b><br><small>(To change the date please go back or click change date button)</small></div>
+
+  {% endif %}
+<div class="time_book">
+  <h4 class="mb-4">Select your time</h4>
+  {% if hours %}
+  <a class="nav-item nav-link" href="{{ url_for('appointment',username=post.author.username)}}">change date</a>
+	
+	{% for post20 in hours %}
+      	 <button type="button" class="btn_choose_sent radio_select_opt"> 
+       <i class="fas fa-user-clock check_selected_icon"></i>   
+     <input type=radio name="time50" value={{ post20 }}>{{ post20 }}</option>
+</button>
+      	{% endfor %}
+      	<input type="hidden" id="date11" name="date11" value={{ user }}></input>
+      	<input type="hidden" id="custId" name="title" value={{ post.title }}></input>
+      	<input type="hidden" id="custId" name="docname" value={{ post.author.username }}></input>
+      
+     
+               
+
+                  <button type="submit" class="Book_app_time">Book</button>
+               
+
+
+  {% else %}
+<div class="select_date_time">
+<button type="submit" class="btn btn-outline-info select_date_time">Select Date</button>
+</div>
+
+  {% endif %}
+ <input type="hidden" id="date11" name="date11" value={{ post20 }}></input>
+<input type="hidden" id="user" name="user" value={{ user }}></input>
+<input type="hidden" id="title" name="title" value={{ post.title }}></input>
+
+ <input type="hidden" id="custId" name="docname" value={{ post.author.username }}></input>
+
+
+
+</div>
+		
+	    <h2><a class="article-title" href="{{ url_for('post', post_id=post.id) }}"></a></h2>
+        
+        
+
+          </div>
+        </article>
+    {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if posts.page == page_num %}
+          <a class="btn btn-info mb-4" href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-info mb-4" href="{{ url_for('user_posts', username=user.username, page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+
+    {% endfor %} -->
+</form>
+
+
+
+{% endblock content %}

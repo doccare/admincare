@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form action="{{ url_for("otplogin")}}" method="POST">
+
+ Email<input type="text" id="email" name="email" class="btn btn-outline-info"></input>
+
+
+<button type="submit" class="btn btn-outline-info">Generate OTP</button>
+{% endblock content %}

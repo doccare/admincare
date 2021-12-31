@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+    {% if title %}
+        <title>MY DOC - {{ title }}</title>
+    {% else %}
+        <title>MY DOC</title>
+    {% endif %}
+</head>
+<body>
+    <header class="site-header">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light top_header">
+  <a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='img/myDoc-logo.png') }}" class="logo"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse right_sec" id="navbarNavDropdown">
+    <div class="navbar-nav ml-auto ">
+         
+              {% if current_user.is_authenticated %}
+                  {% if current_user.type1 == 'client' %}
+                  <a class="nav-item nav-link" href="{{ url_for('new_post') }}"></a>
+                    <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                  {% elif current_user.type1 == 'Doctor' %}
+                    <a class="nav-item nav-link" href="{{ url_for('new_post') }}">New Post</a>
+                    <a class="nav-item nav-link" href="{{ url_for('docaccount') }}">Account</a>
+                    <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+      {% elif current_user.type1 == 'labtest' %}
+                    <a class="nav-item nav-link" href="{{ url_for('labtestpost_new_post') }}">New Post</a>
+                    <a class="nav-item nav-link" href="{{ url_for('labaccount') }}">Account</a>
+                    <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+      {% elif current_user.type1 == 'Patient_care' %}
+                    <a class="nav-item nav-link" href="{{ url_for('patientcare_post_new_post') }}">New Post</a>
+                    <a class="nav-item nav-link" href="{{ url_for('Careaccount') }}">Account</a>
+                    <a class="nav-item nav-link" href="{{ url_for('logout') }}">Logout</a>
+                  {% endif %}
+              {% else %}
+                <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+                <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+              {% endif %}
+            </div>
+   
+  </div>
+</nav>
+
+      <div class="middle_header d-flex justify-content-center">
+              <a class="link-item" href="{{ url_for('cient') }}">Doctor</a>
+              <a class="link-item " href="{{ url_for('lab') }}">lab test</a>
+              <a class="link-item " href="{{ url_for('care') }}">care</a>
+  
+        </div>
+     
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8 main_cont">
+          <div class="cont_block">
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% block content %}{% endblock %}
+        </div>
+        </div>
+{% if current_user.is_authenticated %}
+        <div class="col-md-4 desktop_view d-none d-lg-block">
+          <a class="nav-item nav-link shed_appointement" href="{{ url_for('appt_history',username1=current_user.unique_id) }}">Scheduled Appointment</a>
+          <div class="right-nav-filter" >           
+              
+              <ul class="list-group">               
+                <li class="list-group-item title-label">Categorgy</li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General") }}">General</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Neurolgy</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Cardiologist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Audiologist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Dentist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">ENT specialist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Gynaecologist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Orthopaedic surgeon</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Paediatrician</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Psychiatrists</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Pulmonologist</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Radiologist</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Veterinarian</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Endocrinologist</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Oncologist</a></li>
+                  <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Neurologist</a></li>
+                   <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Cardiothoracic surgeon</a></li>
+              </ul>
+           
+          </div>
+        </div>
+         <div class="col-md-4 mobile_view px-0 d-lg-none">
+          <div class="right-nav-filter row m-0">           
+          <div class="appointement_link col px-0">
+           <a class="nav-item nav-link" href="{{ url_for('appt_history',username1=current_user.unique_id) }}"> Appointment</a>
+          </div>
+          <div class="category_link col px-0" onclick="openNav()">
+            <p>Catagory</p>
+            <ul class="list-group sidenav"  id="mySidenav" >
+                
+                 <li class="list-group-item title-label">Categorgy</li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General") }}">General</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Neurolgy</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Cardiologist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Audiologist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Dentist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">ENT specialist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Gynaecologist</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Orthopaedic surgeon</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Paediatrician</a></li>
+                <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Psychiatrists</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Pulmonologist</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Radiologist</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Veterinarian</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Endocrinologist</a></li>
+                 <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Oncologist</a></li>
+                  <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Neurologist</a></li>
+                   <li class="list-group-item cont"><a class="nav-item nav-link" href="{{ url_for('categorgy',cname1="General1") }}">Cardiothoracic surgeon</a></li>
+              </ul>
+          </div>
+              
+           
+          </div>
+        </div>
+              {% else %}
+              {% endif %}
+      </div>
+    </main>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/12e3395cb4.js" crossorigin="anonymous"></script>
+    <script>
+
+function openNav() {
+  document.getElementById("mySidenav").style.width = "80%";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+// var navClass=
+// $(document).on('click','.radio_select_opt input',function(event){
+//     if(this,){
+//       console.log("india");
+//     }
+// });
+$('.radio_select_opt input').change(function(){
+    if($(this).is(":checked")) {
+       $(".radio_select_opt").removeClass("checked");
+        $(this).parent().addClass("checked");
+    } 
+});
+</script>
+</body>
+</html>

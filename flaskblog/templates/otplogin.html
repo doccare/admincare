@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class=" login_sec_otp p-0">
+<form action="{{ url_for("otplogin")}}" method="POST">
+    <p class="pl-4 pt-4 pb-0">Enter your Email ID</p>
+    <div class="form_custom px-4 pb-4">
+       <label class=" form_label mb-0"> Email </label> 
+       <input type="text" id="email" name="email" class="btn form_field text-left"></input>
+    </div>
+    
+
+
+
+<button type="submit" class="btn btn-outline-info submit_btn">Generate OTP</button>
+<div class=" login_sec p-0">
+{% endblock content %}

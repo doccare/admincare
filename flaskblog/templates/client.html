@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in posts.items %}
+        <article class="media content-section  user_view_post">
+          <div class="doc-dp_sec">
+          <img class="rounded-circle doc-dp" src="{{ url_for('static', filename='profile_pics/' + post.author.image_file) }}">
+        </div>
+        
+          <div class="media-body">
+             <div class="px-2 px-lg-5">
+            <div class="article-metadata text-center pb-3">
+              <a class="mr-2 doc_name" >{{ post.author.username }}</a>
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small>
+            </div>
+            <div class="d-lg-flex justify-content-between text-center pt-3 row mx-0">
+            <p class="col-6 px-0 text-left"><a class="article-title"><b>Speaclist :</b> {{ post.categorgy }}</a></p>
+            <p class="col-6 text-right px-0"><a class="article-title spec_text"><b>Location :</b> {{ post.locality }}</a></p>
+            <p class="article-content col-6 px-0 text-left"><b>Experience: </b>{{ post.year }} years</p>
+            <p class="article-content col-6 text-right px-0"><b>Fees: </b>₹ {{ post.fees }}/-</p>
+</div>
+</div>
+
+<a class="book-appointement" href="{{ url_for('appointment', username=post.author.username) }}">Book appointment </a>
+          </div>
+        </article>
+    {% endfor %}
+   <!--  {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if posts.page == page_num %}
+          <a class="btn btn-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %} -->
+{% endblock content %}
